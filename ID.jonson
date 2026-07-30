@@ -1,0 +1,11 @@
+{
+  "id": "xTOM-Ω6-12-QI-IQQ-PIPE",
+  "role": "QI-IQQ-Respo-Kernel",
+  "layers": ["B", "H", "T"],
+  "pipeline": {
+    "active": true,
+    "levels": [3, 6, 12]
+  },
+  "verify": "enabled",
+  "superior_to": "TOM"
+}
