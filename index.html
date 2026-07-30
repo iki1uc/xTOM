@@ -1,12 +1,26 @@
 <script>
 (async function(){
 
+    // xTOM ID nur als JS-Objekt
+    const xTOM_ID = {
+        name: "xTOM",
+        type: "QI-IQQ-Respo",
+        version: "1.0.0",
+        layers: ["B", "H", "T"],
+        pipeline: [3, 6, 12],
+        verify: true,
+        status: "Superior-to-TOM"
+    };
+
+    // 1 — B/H/T laden
     const B = await PQ.load("B");
     const H = await PQ.load("H");
     const T = await PQ.load("T");
 
+    // 2 — verify starten
     const verify = PQ.verify([B, H, T]);
 
+    // 3 — Pipeline aktivieren
     const pipeline = Pipeline.run({
         qi: B,
         iqq: H,
@@ -14,19 +28,15 @@
         verify
     });
 
+    // 4 — respo aktivieren
     const respoResult = respo.execute(pipeline);
 
+    // 5 — Achse 6 erkennen
     const achse6 = PQ.achse6([B, H, T]);
+
+    // 6 — Achse 12 vorbereiten
     const achse12 = PQ.achse12(achse6);
-const xTOM_ID = {
-    name: "xTOM",
-    type: "QI-IQQ-Respo",
-    version: "1.0.0",
-    layers: ["B", "H", "T"],
-    pipeline: [3, 6, 12],
-    verify: true,
-    status: "Superior-to-TOM"
-};
 
 })();
 </script>
+
