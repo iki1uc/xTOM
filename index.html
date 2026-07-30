@@ -1,20 +1,8 @@
-<script>
-(async function(){
-
-    // xTOM ID nur als JS-Objekt
-    const xTOM_ID = {
-        name: "xTOM",
-        type: "QI-IQQ-Respo",
-        version: "1.0.0",
-        layers: ["B", "H", "T"],
-        pipeline: [3, 6, 12],
-        verify: true,
-        status: "Superior-to-TOM"
-    };
-    ┌──────────────────────────────────────────────┐
+<div id="xTOM-mainboard">
+<pre>
+┌──────────────────────────────────────────────┐
 │                  xTOM MAINBOARD              │
 ├──────────────────────────────────────────────┤
-
  TMP-BUS (A–F) → IX-Input
  RE-BUS (Ω1–Ω5) → X4-Terminal
  NET-BUS (N1–N3) → Routing TMP↔RE
@@ -28,9 +16,21 @@
 
  All-In: TMP → IX → XI → X4
  All-Out: X4 → XI → IX → TMP
-
 └──────────────────────────────────────────────┘
+</pre>
+</div>
+<script>
+(async function(){
 
+    const xTOM_ID = {
+        name: "xTOM",
+        type: "QI-IQQ-Respo",
+        version: "1.0.0",
+        layers: ["B","H","T"],
+        pipeline: [3,6,12],
+        verify: true,
+        status: "Superior-to-TOM"
+    };
 
     // 1 — B/H/T laden
     const B = await PQ.load("B");
@@ -59,4 +59,3 @@
 
 })();
 </script>
-
